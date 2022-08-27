@@ -5,6 +5,8 @@ from typing import Callable
 from typing import Mapping
 from typing import TypeVar
 
+import services
+
 EventHandler = TypeVar(
     "EventHandler",
     bound=Callable[[Mapping[str, Any]], Awaitable[None]],

@@ -12,9 +12,20 @@ from fastapi.responses import Response
 
 import events
 import paypal
+import services
 import settings
 
 app = FastAPI()
+
+
+@app.on_event("startup")
+async def on_startup() -> None:
+    await services.database.connect()
+
+
+@app.on_event("shutdown")
+async def on_shutdown() -> None:
+    await services.database.disconnect()
 
 
 @app.post("/paypal/webhooks")
