@@ -1,6 +1,6 @@
 databases
 fastapi
 httpx
-pythonrestsdk
+paypalrestsdk
 python-dotenv
 uvicorn
